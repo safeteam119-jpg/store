@@ -122,11 +122,11 @@
     font-size:0.68rem;
     color:var(--primary);
     font-weight:700;
-    margin:0.15rem 0 0.7rem 1.85rem;
+    margin:0.15rem 0 0.7rem 0;
   }
 
   /* 1~5점 스케일: 원형 버튼 + 1/3/5번 아래에만 설명 표시 */
-  .scale-wrap{margin-left:1.85rem;}
+  .scale-wrap{margin-top:0.6rem;}
   .scale{
     display:flex;
     gap:0.4rem;
@@ -139,8 +139,8 @@
     align-items:center;
   }
   .scale-item label{
-    width:1.9rem;
-    height:1.9rem;
+    width:2.15rem;
+    height:2.15rem;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -148,7 +148,7 @@
     border-radius:50%;
     cursor:pointer;
     transition:all 0.15s ease;
-    font-size:0.76rem;
+    font-size:0.84rem;
     font-weight:600;
     color:var(--text-sub);
   }
@@ -176,7 +176,7 @@
     display:flex;
     flex-direction:column;
     gap:0.45rem;
-    margin-left:1.85rem;
+    margin-top:0.6rem;
   }
   .choice-card, .check-card{
     display:flex;
@@ -226,7 +226,6 @@
 
   .sub-block{
     margin-top:0.7rem;
-    margin-left:1.85rem;
     padding:0.75rem 0.8rem;
     background:#faf8fd;
     border-left:3px solid var(--primary);
@@ -239,7 +238,7 @@
     color:var(--primary-dark);
     word-break:keep-all;
   }
-  .sub-block .scale-wrap, .sub-block .checkbox-group{margin-left:0;}
+
 
   .other-input{
     width:100%;
@@ -430,7 +429,7 @@
       <label class="check-card"><input type="checkbox" name="q7" value="스트레스 관리 프로그램"><span>스트레스 관리 프로그램</span><span class="check-mark"></span></label>
       <label class="check-card"><input type="checkbox" id="q7_other_check" name="q7_other_check"><span>기타 (직접 입력)</span><span class="check-mark"></span></label>
     </div>
-    <input type="text" id="q7_other_text" class="other-input" style="display:none;margin-left:1.85rem;width:calc(100% - 1.85rem);" placeholder="원하시는 프로그램을 적어주세요">
+    <input type="text" id="q7_other_text" class="other-input" style="display:none;" placeholder="원하시는 프로그램을 적어주세요">
   </section>
 
 </form>
