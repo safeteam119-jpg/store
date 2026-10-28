@@ -125,22 +125,21 @@
     margin:0.15rem 0 0.7rem 1.85rem;
   }
 
-  /* 1~5점 스케일: 원형 버튼 + 상단 좌우 설명 */
+  /* 1~5점 스케일: 원형 버튼 + 1/3/5번 아래에만 설명 표시 */
   .scale-wrap{margin-left:1.85rem;}
-  .scale-caption{
-    display:flex;
-    justify-content:space-between;
-    font-size:0.66rem;
-    color:var(--text-sub);
-    margin-bottom:0.4rem;
-    word-break:keep-all;
-  }
   .scale{
     display:flex;
     gap:0.4rem;
+    align-items:flex-start;
   }
-  .scale label{
+  .scale-item{
     flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .scale-item label{
+    width:100%;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -154,15 +153,23 @@
     font-weight:600;
     color:var(--text-sub);
   }
-  .scale label.selected{
+  .scale-item label.selected{
     border-color:var(--primary);
     background:var(--primary);
     color:#fff;
   }
-  .scale input{
+  .scale-item input{
     position:absolute;
     opacity:0;
     width:0;height:0;
+  }
+  .scale-tag{
+    margin-top:0.3rem;
+    font-size:0.62rem;
+    color:var(--text-sub);
+    text-align:center;
+    line-height:1.25;
+    word-break:keep-all;
   }
 
   /* 선택형(라디오/체크박스) 카드 */
@@ -286,7 +293,7 @@
 <header class="top">
   <span class="badge">매장용</span>
   <h1>2026 직원 건강관리 설문조사</h1>
-  <p class="desc">본 설문은 내년도에 더 나은 직원 건강관리를 제공하기 위한 정보 수집 목적으로 진행됩니다.</p>
+  <p class="desc">본 설문은 내년도에 더 나은 직원 건강관리를 제공하기 위한<br>정보 수집 목적으로 진행됩니다.</p>
   <div class="progress-bar"><div class="progress-bar-fill" id="progressFill"></div></div>
 </header>
 
@@ -300,13 +307,12 @@
       <span class="q-note">※ 유소견 건강관리, 안전보건 뉴스레터, 건강프로그램 등</span>
     </span></p>
     <div class="scale-wrap">
-      <div class="scale-caption"><span>전혀 그렇지 않다</span><span>매우 그렇다</span></div>
       <div class="scale" data-group="q1">
-        <label><input type="radio" name="q1" value="1"><span>1</span></label>
-        <label><input type="radio" name="q1" value="2"><span>2</span></label>
-        <label><input type="radio" name="q1" value="3"><span>3</span></label>
-        <label><input type="radio" name="q1" value="4"><span>4</span></label>
-        <label><input type="radio" name="q1" value="5"><span>5</span></label>
+        <div class="scale-item"><label><input type="radio" name="q1" value="1"><span>1</span></label><span class="scale-tag">전혀<br>그렇지 않다</span></div>
+        <div class="scale-item"><label><input type="radio" name="q1" value="2"><span>2</span></label></div>
+        <div class="scale-item"><label><input type="radio" name="q1" value="3"><span>3</span></label><span class="scale-tag">보통</span></div>
+        <div class="scale-item"><label><input type="radio" name="q1" value="4"><span>4</span></label></div>
+        <div class="scale-item"><label><input type="radio" name="q1" value="5"><span>5</span></label><span class="scale-tag">매우<br>그렇다</span></div>
       </div>
     </div>
   </section>
@@ -332,25 +338,24 @@
 
   <!-- Q3 (기존 2번) -->
   <section class="question">
-    <p class="q-title"><span class="q-num">3</span><span class="q-body">올해 진행된 보건관리 활동을 통해 회사가 직원 건강관리에 관심을 갖고 지원하고 있다고 느끼셨습니까?</span></p>
+    <p class="q-title"><span class="q-num">3</span><span class="q-body">올해 진행된 건강관리 활동을 통해 회사가 직원 건강관리에 관심을 갖고 지원하고 있다고 느끼셨습니까?</span></p>
     <div class="scale-wrap">
-      <div class="scale-caption"><span>전혀 그렇지 않다</span><span>매우 그렇다</span></div>
       <div class="scale" data-group="q3">
-        <label><input type="radio" name="q3" value="1"><span>1</span></label>
-        <label><input type="radio" name="q3" value="2"><span>2</span></label>
-        <label><input type="radio" name="q3" value="3"><span>3</span></label>
-        <label><input type="radio" name="q3" value="4"><span>4</span></label>
-        <label><input type="radio" name="q3" value="5"><span>5</span></label>
+        <div class="scale-item"><label><input type="radio" name="q3" value="1"><span>1</span></label><span class="scale-tag">전혀<br>그렇지 않다</span></div>
+        <div class="scale-item"><label><input type="radio" name="q3" value="2"><span>2</span></label></div>
+        <div class="scale-item"><label><input type="radio" name="q3" value="3"><span>3</span></label><span class="scale-tag">보통</span></div>
+        <div class="scale-item"><label><input type="radio" name="q3" value="4"><span>4</span></label></div>
+        <div class="scale-item"><label><input type="radio" name="q3" value="5"><span>5</span></label><span class="scale-tag">매우<br>그렇다</span></div>
       </div>
     </div>
   </section>
 
   <!-- Q4 (기존 3번) -->
   <section class="question">
-    <p class="q-title"><span class="q-num">4</span><span class="q-body">올해 진행된 보건관리 활동 중 가장 만족하신 활동은 무엇입니까?</span></p>
+    <p class="q-title"><span class="q-num">4</span><span class="q-body">올해 진행된 건강관리 활동 중 가장 만족하신 활동은 무엇입니까?</span></p>
     <p class="q-hint">중복 선택 가능</p>
     <div class="checkbox-group" data-group="q4">
-      <label class="check-card"><input type="checkbox" name="q4" value="유소견자 건강관리(문자 발송, 전화 상담)"><span>유소견자 건강관리(문자 발송, 전화 상담)</span><span class="check-mark"></span></label>
+      <label class="check-card"><input type="checkbox" name="q4" value="건강검진 후 건강관리 (카톡 발송, 전화 상담)"><span>건강검진 후 건강관리 (카톡 발송, 전화 상담)</span><span class="check-mark"></span></label>
       <label class="check-card"><input type="checkbox" name="q4" value="건강프로그램 참여"><span>건강프로그램 참여</span><span class="check-mark"></span></label>
       <label class="check-card"><input type="checkbox" name="q4" value="어떠케어 도입을 통한 결과 등록 방식 변경"><span>어떠케어 도입을 통한 결과 등록 방식 변경</span><span class="check-mark"></span></label>
       <label class="check-card"><input type="checkbox" name="q4" value="안전보건 뉴스레터(월간 뉴스레터)"><span>안전보건 뉴스레터(월간 뉴스레터)</span><span class="check-mark"></span></label>
@@ -364,18 +369,17 @@
     <p class="q-title"><span class="q-num">5</span><span class="q-body">올해 진행된 건강프로그램 중 참여하신 항목을 모두 선택해주세요.</span></p>
     <p class="q-hint">중복 선택 가능</p>
     <div class="checkbox-group" data-group="q5">
-      <label class="check-card"><input type="checkbox" id="q5_walk" name="q5_walk"><span>걷기 프로그램 (유소견 대상)</span><span class="check-mark"></span></label>
+      <label class="check-card"><input type="checkbox" id="q5_walk" name="q5_walk"><span>걷기 프로그램 ( 유소견자 대상 진행 )</span><span class="check-mark"></span></label>
     </div>
     <div class="sub-block" id="q5_walk_sat_box" hidden>
       <p class="sub-title">↳ [걷기 프로그램] 전반적인 만족도를 평가해주세요.</p>
       <div class="scale-wrap">
-        <div class="scale-caption"><span>불만족</span><span>만족</span></div>
         <div class="scale" data-group="q5_walk_sat">
-          <label><input type="radio" name="q5_walk_sat" value="1"><span>1</span></label>
-          <label><input type="radio" name="q5_walk_sat" value="2"><span>2</span></label>
-          <label><input type="radio" name="q5_walk_sat" value="3"><span>3</span></label>
-          <label><input type="radio" name="q5_walk_sat" value="4"><span>4</span></label>
-          <label><input type="radio" name="q5_walk_sat" value="5"><span>5</span></label>
+          <div class="scale-item"><label><input type="radio" name="q5_walk_sat" value="1"><span>1</span></label><span class="scale-tag">불만족</span></div>
+          <div class="scale-item"><label><input type="radio" name="q5_walk_sat" value="2"><span>2</span></label></div>
+          <div class="scale-item"><label><input type="radio" name="q5_walk_sat" value="3"><span>3</span></label><span class="scale-tag">보통</span></div>
+          <div class="scale-item"><label><input type="radio" name="q5_walk_sat" value="4"><span>4</span></label></div>
+          <div class="scale-item"><label><input type="radio" name="q5_walk_sat" value="5"><span>5</span></label><span class="scale-tag">만족</span></div>
         </div>
       </div>
     </div>
@@ -386,13 +390,12 @@
     <div class="sub-block" id="q5_draw_sat_box" hidden>
       <p class="sub-title">↳ [그림 컨테스트] 전반적인 만족도를 평가해주세요.</p>
       <div class="scale-wrap">
-        <div class="scale-caption"><span>불만족</span><span>만족</span></div>
         <div class="scale" data-group="q5_draw_sat">
-          <label><input type="radio" name="q5_draw_sat" value="1"><span>1</span></label>
-          <label><input type="radio" name="q5_draw_sat" value="2"><span>2</span></label>
-          <label><input type="radio" name="q5_draw_sat" value="3"><span>3</span></label>
-          <label><input type="radio" name="q5_draw_sat" value="4"><span>4</span></label>
-          <label><input type="radio" name="q5_draw_sat" value="5"><span>5</span></label>
+          <div class="scale-item"><label><input type="radio" name="q5_draw_sat" value="1"><span>1</span></label><span class="scale-tag">불만족</span></div>
+          <div class="scale-item"><label><input type="radio" name="q5_draw_sat" value="2"><span>2</span></label></div>
+          <div class="scale-item"><label><input type="radio" name="q5_draw_sat" value="3"><span>3</span></label><span class="scale-tag">보통</span></div>
+          <div class="scale-item"><label><input type="radio" name="q5_draw_sat" value="4"><span>4</span></label></div>
+          <div class="scale-item"><label><input type="radio" name="q5_draw_sat" value="5"><span>5</span></label><span class="scale-tag">만족</span></div>
         </div>
       </div>
     </div>
@@ -406,13 +409,12 @@
   <section class="question">
     <p class="q-title"><span class="q-num">6</span><span class="q-body">이전의 HR 수기 등록 방식에 비하여 어떠케어를 통한 건강검진 결과 등록 방식에 만족하시나요?</span></p>
     <div class="scale-wrap">
-      <div class="scale-caption"><span>매우 불만족</span><span>매우 만족</span></div>
       <div class="scale" data-group="q6">
-        <label><input type="radio" name="q6" value="1"><span>1</span></label>
-        <label><input type="radio" name="q6" value="2"><span>2</span></label>
-        <label><input type="radio" name="q6" value="3"><span>3</span></label>
-        <label><input type="radio" name="q6" value="4"><span>4</span></label>
-        <label><input type="radio" name="q6" value="5"><span>5</span></label>
+        <div class="scale-item"><label><input type="radio" name="q6" value="1"><span>1</span></label><span class="scale-tag">매우<br>불만족</span></div>
+        <div class="scale-item"><label><input type="radio" name="q6" value="2"><span>2</span></label></div>
+        <div class="scale-item"><label><input type="radio" name="q6" value="3"><span>3</span></label><span class="scale-tag">보통</span></div>
+        <div class="scale-item"><label><input type="radio" name="q6" value="4"><span>4</span></label></div>
+        <div class="scale-item"><label><input type="radio" name="q6" value="5"><span>5</span></label><span class="scale-tag">매우<br>만족</span></div>
       </div>
     </div>
   </section>
@@ -429,7 +431,7 @@
       <label class="check-card"><input type="checkbox" name="q7" value="스트레스 관리 프로그램"><span>스트레스 관리 프로그램</span><span class="check-mark"></span></label>
       <label class="check-card"><input type="checkbox" id="q7_other_check" name="q7_other_check"><span>기타 (직접 입력)</span><span class="check-mark"></span></label>
     </div>
-    <input type="text" id="q7_other_text" class="other-input" style="display:none;margin-left:2.3rem;width:calc(100% - 2.3rem);" placeholder="원하시는 프로그램을 적어주세요">
+    <input type="text" id="q7_other_text" class="other-input" style="display:none;margin-left:1.85rem;width:calc(100% - 1.85rem);" placeholder="원하시는 프로그램을 적어주세요">
   </section>
 
 </form>
