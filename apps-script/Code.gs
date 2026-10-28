@@ -31,9 +31,8 @@ const HEADERS = [
   'Q5_그림컨테스트_참여',
   'Q5_그림컨테스트_만족도(1-5)',
   'Q5_참여안함',
-  'Q6_결과등록방식_만족도(1-5)',
-  'Q7_희망프로그램',
-  'Q7_기타의견'
+  'Q6_희망프로그램',
+  'Q6_기타의견'
 ];
 
 function doPost(e) {
@@ -46,6 +45,13 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(HEADERS);
       sheet.setFrozenRows(1);
+    } else {
+      // 설문 문항이 수정되어 헤더 구성이 바뀐 경우, 기존 헤더 행을 최신 구성으로 갱신
+      const currentHeaderRow = sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0];
+      const isSame = HEADERS.every((h, i) => currentHeaderRow[i] === h);
+      if (!isSame) {
+        sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
+      }
     }
 
     sheet.appendRow([
@@ -61,9 +67,8 @@ function doPost(e) {
       data.q5_draw ? 'Y' : 'N',
       data.q5_draw_sat || '',
       data.q5_none ? 'Y' : 'N',
-      data.q6 || '',
-      (data.q7 || []).join(', '),
-      data.q7_other || ''
+      (data.q6 || []).join(', '),
+      data.q6_other || ''
     ]);
 
     return ContentService
