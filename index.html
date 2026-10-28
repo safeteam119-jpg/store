@@ -246,7 +246,7 @@
     margin-top:0.4rem;
     border:1.5px solid var(--border);
     border-radius:0.6rem;
-    font-size:16px; /* iOS 자동 확대 방지를 위해 절대값으로 고정 */
+    font-size:0.85rem; /* 주변 선택지 글씨 크기와 통일 (iOS에서 포커스 시 약간 확대될 수 있음) */
     font-family:inherit;
   }
   .other-input:focus{outline:none;border-color:var(--primary);}
@@ -436,7 +436,7 @@
   // ===========================================================
   // Apps Script 웹앱 배포 URL (구글 스프레드시트 결과 적재용)
   // ===========================================================
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxyux4V9P-MikfX9w984MzzVyk8rPpaFrtbLyQLN3ML-uD3Iojim-Rv1ENpNeGz5wVf/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwftKCcr8qyvNODgbJINVsZa01uNIYemFI956TgpRwXUemBiQk3blKt8Ygcmfrmmnal/exec';
   const SITE_NAME = '매장';
 
   const form = document.getElementById('surveyForm');
