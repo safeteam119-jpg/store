@@ -521,14 +521,17 @@
     updateProgress();
   });
 
-  // 진행률 바 (필수 응답 q1, q2, q3 기준)
+  // 진행률 바 (전체 6문항 중 응답한 문항 수 기준)
   function updateProgress(){
-    const requiredGroups = ['q1','q2','q3'];
+    const total = 6;
     let answered = 0;
-    requiredGroups.forEach(name => {
-      if(form.querySelector(`input[name="${name}"]:checked`)) answered++;
-    });
-    const pct = Math.round((answered / requiredGroups.length) * 100);
+    if(form.querySelector('input[name="q1"]:checked')) answered++;
+    if(form.querySelector('input[name="q2"]:checked')) answered++;
+    if(form.querySelector('input[name="q3"]:checked')) answered++;
+    if(form.querySelectorAll('input[name="q4"]:checked').length > 0) answered++;
+    if(q5Walk.checked || q5Draw.checked || q5None.checked) answered++;
+    if(form.querySelectorAll('input[name="q6"]:checked').length > 0 || q6OtherCheck.checked) answered++;
+    const pct = Math.round((answered / total) * 100);
     progressFill.style.width = pct + '%';
   }
   form.addEventListener('change', updateProgress);
