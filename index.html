@@ -6,7 +6,7 @@
 <title>2026 직원 건강관리 설문조사 (매장용)</title>
 <style>
   html{
-    font-size:17px; /* 전체 기준 글자 크기 상향 (모바일 가독성) */
+    font-size:15px; /* 모바일 기준 — 너무 크지 않게 */
   }
   :root{
     --primary:#6c3fc5;
@@ -14,9 +14,9 @@
     --primary-light:#f2ecfb;
     --accent:#ffb300;
     --border:#e6e3ee;
-    --text:#262430;
-    --text-sub:#726f7c;
-    --radius:16px;
+    --text:#2c2a35;
+    --text-sub:#8a8792;
+    --radius:14px;
   }
   *{box-sizing:border-box;}
   body{
@@ -25,48 +25,48 @@
     background:#f5f3fa;
     color:var(--text);
     -webkit-tap-highlight-color:transparent;
-    line-height:1.5;
+    line-height:1.45;
   }
   .wrap{
-    max-width:600px;
+    max-width:480px;
     margin:0 auto;
-    padding:0 0 118px;
+    padding:0 0 100px;
   }
   header.top{
     background:linear-gradient(145deg,var(--primary),var(--primary-dark));
     color:#fff;
-    padding:2rem 1.25rem 1.6rem;
-    border-radius:0 0 1.75rem 1.75rem;
+    padding:1.5rem 1.2rem 1.25rem;
+    border-radius:0 0 1.4rem 1.4rem;
     text-align:center;
   }
   header.top .badge{
     display:inline-block;
     background:rgba(255,255,255,0.22);
-    padding:0.3rem 0.9rem;
+    padding:0.22rem 0.75rem;
     border-radius:999px;
-    font-size:0.85rem;
+    font-size:0.72rem;
     font-weight:600;
-    margin-bottom:0.7rem;
+    margin-bottom:0.5rem;
     letter-spacing:0.3px;
   }
   header.top h1{
-    font-size:1.4rem;
-    margin:0 0 0.6rem;
+    font-size:1.08rem;
+    margin:0 0 0.4rem;
     word-break:keep-all;
     line-height:1.4;
   }
   header.top p.desc{
-    font-size:0.92rem;
-    opacity:0.92;
+    font-size:0.78rem;
+    opacity:0.9;
     margin:0;
-    line-height:1.55;
+    line-height:1.5;
     word-break:keep-all;
   }
   /* 진행률 바 */
   .progress-bar{
     position:sticky;
     top:0;
-    height:5px;
+    height:4px;
     background:rgba(255,255,255,0.3);
     z-index:20;
     border-radius:0 0 4px 4px;
@@ -78,21 +78,21 @@
     background:var(--accent);
     transition:width 0.25s ease;
   }
-  main{padding:1.25rem 1rem 0;}
+  main{padding:0.9rem 0.8rem 0;}
   .question{
     background:#fff;
     border-radius:var(--radius);
-    padding:1.4rem 1.25rem;
-    margin-bottom:1rem;
-    box-shadow:0 3px 12px rgba(80,50,140,0.08);
+    padding:1rem 0.9rem;
+    margin-bottom:0.7rem;
+    box-shadow:0 2px 8px rgba(80,50,140,0.07);
   }
   .q-title{
     display:flex;
-    gap:0.6rem;
+    gap:0.5rem;
     font-weight:700;
-    font-size:1.08rem;
-    line-height:1.5;
-    margin:0 0 0.3rem;
+    font-size:0.88rem;
+    line-height:1.45;
+    margin:0 0 0.2rem;
     word-break:keep-all;
   }
   .q-num{
@@ -100,42 +100,44 @@
     align-items:center;
     justify-content:center;
     flex-shrink:0;
-    width:1.7rem;height:1.7rem;
+    width:1.35rem;height:1.35rem;
     background:var(--primary);
     color:#fff;
     border-radius:50%;
-    font-size:0.95rem;
-    margin-top:0.05rem;
+    font-size:0.72rem;
+    font-weight:700;
+    margin-top:0.03rem;
   }
   .q-body{flex:1;}
   .q-note{
     display:block;
-    font-size:0.82rem;
+    font-size:0.68rem;
     font-weight:normal;
     color:var(--text-sub);
-    margin-top:0.4rem;
+    margin-top:0.3rem;
+    line-height:1.4;
     word-break:keep-all;
   }
   .q-hint{
-    font-size:0.85rem;
+    font-size:0.68rem;
     color:var(--primary);
     font-weight:700;
-    margin:0.2rem 0 1rem 2.3rem;
+    margin:0.15rem 0 0.7rem 1.85rem;
   }
 
-  /* 1~5점 스케일: 큰 원형 버튼 + 상단 좌우 설명 */
-  .scale-wrap{margin-left:2.3rem;}
+  /* 1~5점 스케일: 원형 버튼 + 상단 좌우 설명 */
+  .scale-wrap{margin-left:1.85rem;}
   .scale-caption{
     display:flex;
     justify-content:space-between;
-    font-size:0.82rem;
+    font-size:0.66rem;
     color:var(--text-sub);
-    margin-bottom:0.6rem;
+    margin-bottom:0.4rem;
     word-break:keep-all;
   }
   .scale{
     display:flex;
-    gap:0.5rem;
+    gap:0.4rem;
   }
   .scale label{
     flex:1;
@@ -143,13 +145,13 @@
     align-items:center;
     justify-content:center;
     aspect-ratio:1/1;
-    min-height:3rem;
-    border:2px solid var(--border);
+    min-height:2.3rem;
+    border:1.5px solid var(--border);
     border-radius:50%;
     cursor:pointer;
     transition:all 0.15s ease;
-    font-size:1.15rem;
-    font-weight:700;
+    font-size:0.85rem;
+    font-weight:600;
     color:var(--text-sub);
   }
   .scale label.selected{
@@ -167,23 +169,24 @@
   .choice-group, .checkbox-group{
     display:flex;
     flex-direction:column;
-    gap:0.6rem;
-    margin-left:2.3rem;
+    gap:0.45rem;
+    margin-left:1.85rem;
   }
   .choice-card, .check-card{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:0.75rem;
-    padding:0.95rem 1.1rem;
-    border:2px solid var(--border);
-    border-radius:0.9rem;
+    gap:0.6rem;
+    padding:0.65rem 0.8rem;
+    border:1.5px solid var(--border);
+    border-radius:0.65rem;
     cursor:pointer;
     transition:all 0.15s ease;
-    font-size:1rem;
+    font-size:0.82rem;
+    line-height:1.4;
     word-break:keep-all;
   }
-  .choice-card span, .check-card span{flex:1;}
+  .choice-card span:not(.check-mark), .check-card span:not(.check-mark){flex:1;}
   .choice-card.selected, .check-card.selected{
     border-color:var(--primary);
     background:var(--primary-light);
@@ -191,14 +194,14 @@
     color:var(--primary-dark);
   }
   .check-mark{
-    width:1.4rem;height:1.4rem;
+    width:1.05rem;height:1.05rem;
     flex-shrink:0;
-    border:2px solid var(--border);
+    border:1.5px solid var(--border);
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:0.85rem;
+    font-size:0.62rem;
     color:#fff;
     transition:all 0.15s ease;
   }
@@ -216,17 +219,17 @@
   }
 
   .sub-block{
-    margin-top:1rem;
-    margin-left:2.3rem;
-    padding:1rem 1.1rem;
+    margin-top:0.7rem;
+    margin-left:1.85rem;
+    padding:0.75rem 0.8rem;
     background:#faf8fd;
-    border-left:4px solid var(--primary);
-    border-radius:0 0.7rem 0.7rem 0;
+    border-left:3px solid var(--primary);
+    border-radius:0 0.6rem 0.6rem 0;
   }
   .sub-title{
-    font-size:0.95rem;
+    font-size:0.76rem;
     font-weight:700;
-    margin:0 0 0.8rem;
+    margin:0 0 0.55rem;
     color:var(--primary-dark);
     word-break:keep-all;
   }
@@ -234,11 +237,11 @@
 
   .other-input{
     width:100%;
-    padding:0.85rem 1rem;
-    margin-top:0.5rem;
-    border:2px solid var(--border);
-    border-radius:0.7rem;
-    font-size:1rem; /* 16px 이상 유지: iOS 자동 확대 방지 */
+    padding:0.65rem 0.8rem;
+    margin-top:0.4rem;
+    border:1.5px solid var(--border);
+    border-radius:0.6rem;
+    font-size:16px; /* iOS 자동 확대 방지를 위해 절대값으로 고정 */
     font-family:inherit;
   }
   .other-input:focus{outline:none;border-color:var(--primary);}
@@ -248,19 +251,19 @@
     position:fixed;
     left:0;right:0;bottom:0;
     background:#fff;
-    padding:0.9rem 1.1rem calc(0.9rem + env(safe-area-inset-bottom));
-    box-shadow:0 -4px 16px rgba(80,50,140,0.12);
+    padding:0.75rem 0.9rem calc(0.75rem + env(safe-area-inset-bottom));
+    box-shadow:0 -4px 14px rgba(80,50,140,0.1);
     z-index:30;
   }
-  .submit-bar .inner{max-width:600px;margin:0 auto;}
+  .submit-bar .inner{max-width:480px;margin:0 auto;}
   .btn-submit{
     width:100%;
-    padding:1.05rem;
+    padding:0.8rem;
     background:var(--primary);
     color:#fff;
     border:none;
-    border-radius:0.9rem;
-    font-size:1.1rem;
+    border-radius:0.75rem;
+    font-size:0.92rem;
     font-weight:700;
     cursor:pointer;
   }
@@ -269,18 +272,13 @@
   #loading, #resultMessage{
     display:none;
     text-align:center;
-    padding:4.5rem 1.5rem;
-    font-size:1.15rem;
+    padding:3.5rem 1.3rem;
+    font-size:0.9rem;
   }
   #resultMessage.show, #loading.show{display:block;}
-  #resultMessage .icon{font-size:2.8rem;margin-bottom:0.7rem;}
+  #resultMessage .icon{font-size:2.2rem;margin-bottom:0.6rem;}
   #resultMessage.error{color:#c0392b;}
   #resultMessage.success{color:var(--primary-dark);}
-
-  @media (max-width:360px){
-    .scale label{font-size:1.05rem;}
-    .q-title{font-size:1.02rem;}
-  }
 </style>
 </head>
 <body>
